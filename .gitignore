@@ -1,0 +1,17 @@
+# generated data (rebuilt on every run)
+data/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# streamlit
+.streamlit/secrets.toml
+
+# editors
+.idea/
+.vscode/
+.DS_Store
