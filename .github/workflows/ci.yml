@@ -1,0 +1,23 @@
+# CI: byte-compile every module and run the detection test suite.
+# Only stdlib + pytest are needed (tests drive src.processor in-process),
+# so this stays fast without installing the Streamlit dashboard deps.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Byte-compile sources
+        run: python -m compileall -q src config.py run_demo.py
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run tests
+        run: python -m pytest tests/ -q
