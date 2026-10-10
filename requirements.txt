@@ -4,4 +4,7 @@ pandas>=2.0,<3
 plotly>=5.15,<6
 streamlit>=1.32,<2
 
+# Tests
+pytest>=8,<9
+
 # Python 3.10+
